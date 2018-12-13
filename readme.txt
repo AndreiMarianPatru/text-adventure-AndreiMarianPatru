@@ -1,0 +1,1 @@
+There is no "correct" solution since the game generates the "winning room" randomly.
