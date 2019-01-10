@@ -137,7 +137,7 @@ def drop_item(key):
         print_slow("There is no point in dropping that")
     else:
         playerInv[key]-=1
-        print_slow('the '+str(key)+'is now in the current room')
+        print_slow('the '+str(key)+' is now in the current room')
         room[currentRoom][key]+=1
 
 def look_item(key):
@@ -276,7 +276,7 @@ def restart():
         intro()
 
 
-#some little talk to let the player know his task
+#intro text which lets the player know his task
 def intro():
     print_slow("Greetings!")
 
@@ -315,7 +315,7 @@ while True:
     #create a list with the input given by user bt splitting it into words
     splitList=command.split(" ")
     print()
-    #use different funtions using the input provided by user
+    #usage of different funtions; input given by player
     if splitList[0]=='go':
         if splitList[1]=='up':
             go_up()
@@ -348,9 +348,7 @@ while True:
                 if room[currentRoom]['apple']>0 or playerInv['apple']>0:
                     use_apple()
                 else:
-
                     print_slow("You don't have any apples now")
-
             elif splitList[1]=='map':
                 if room[currentRoom]['map']>0 or playerInv['map']>0:
                     use_maps()
@@ -359,8 +357,11 @@ while True:
                     print_slow("You don't have enough maps now")
             elif  splitList[1]=="DONUTS":
                 use_donuts()
-            else:
-
+            elif splitList[1]=='box':
+                if room[currentRoom]['box']>0:
+                    room[currentRoom]['box']-=1
+                else:
+                    playerInv['box']-=1
                 print_slow("OK")
 
     elif splitList[0]=='shoot':
